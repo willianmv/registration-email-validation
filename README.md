@@ -14,6 +14,7 @@ Este projeto é uma API REST construída com **Spring Boot** que fornece funcion
 - Lombok
 - OpenAPI/Swagger (via `@Tag`)
 - Maven
+- Docker
 
 ---
 
@@ -53,6 +54,38 @@ Este projeto é uma API REST construída com **Spring Boot** que fornece funcion
 ---
 
 ## 📦 Estrutura Principal
+
+### 📦 Ambiente com Docker
+
+Este projeto utiliza **Docker Compose** para configurar rapidamente o ambiente de desenvolvimento. Os principais serviços definidos são:
+
+### 🐘 PostgreSQL
+
+Banco de dados utilizado pela aplicação:
+
+- Porta: `5432`
+- Usuário padrão: `postgres`
+- Senha: `postgres`
+- Volume persistente dos dados
+
+### 🛠️ pgAdmin
+
+Interface web para gerenciar o PostgreSQL:
+
+- URL: `http://localhost:15432`
+- Login: `admin@admin.com`
+- Senha: `admin`
+
+### 📬 MailDev (Ambiente de Teste de E-mail)
+
+Ferramenta leve para capturar e visualizar e-mails enviados pela aplicação:
+
+- Interface Web: `http://localhost:1080`
+- Porta SMTP: `1025`
+
+> Isso permite testar o envio e o conteúdo dos e-mails **sem enviar e-mails reais** em desenvolvimento.
+
+---
 
 ### 🔐 Autenticação
 
@@ -113,7 +146,7 @@ Filtro que intercepta as requisições e:
 
 ### 👤 Usuário, Token e Role
 
-- **`User`**: Entidade principal de usuários, implementa `UserDetails`
+- **`User`**: Entidade principal de usuários, implementa `UserDetails` e `Principal`
 - **`Token`**: Token de ativação com campos `createdAt`, `expiresAt`, `validatedAt`
 - **`Role`**: Papel do usuário no sistema (ex: `ROLE_USER`, `ROLE_ADMIN`)
 
