@@ -14,11 +14,12 @@ public record RegistrationRequestDto(
 
         @NotEmpty(message = "Lastname is required")
         @NotBlank(message = "Lastname is required")
-        String lasName,
+        String lastName,
 
         @NotEmpty(message = "Email is required")
         @NotBlank(message = "Email is required")
-        @Email(message = "Email is not formatted") String email,
+        @Email(message = "Email is not formatted")
+        String email,
 
         @NotEmpty(message = "Password is required")
         @NotBlank(message = "Password is required")
